@@ -48,6 +48,7 @@
         body {
             background-color: #0f172a;
             font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
         }
         
         .font-mono {
@@ -60,33 +61,59 @@
             border: 1px solid #30363d;
             border-radius: 8px;
             overflow: hidden;
+            width: 100%;
         }
         
         .terminal-header {
             background: #161b22;
-            padding: 10px 14px;
+            padding: 8px 12px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
+        }
+        
+        @media (min-width: 768px) {
+            .terminal-header {
+                padding: 10px 14px;
+                gap: 8px;
+            }
         }
         
         .terminal-dot {
-            width: 12px;
-            height: 12px;
+            width: 10px;
+            height: 10px;
             border-radius: 50%;
         }
         
+        @media (min-width: 768px) {
+            .terminal-dot {
+                width: 12px;
+                height: 12px;
+            }
+        }
+        
         .terminal-body {
-            padding: 16px;
+            padding: 12px;
             font-family: 'Fira Code', monospace;
-            font-size: 13px;
-            line-height: 1.6;
-            min-height: 160px;
+            font-size: 11px;
+            line-height: 1.5;
+            min-height: 130px;
+            overflow-x: auto;
+        }
+        
+        @media (min-width: 768px) {
+            .terminal-body {
+                padding: 16px;
+                font-size: 13px;
+                line-height: 1.6;
+                min-height: 160px;
+            }
         }
         
         .terminal-line {
             opacity: 0;
             animation: fadeIn 0.5s forwards;
+            white-space: nowrap;
         }
         
         .terminal-line .prompt {
@@ -107,12 +134,19 @@
         
         .cursor {
             display: inline-block;
-            width: 10px;
-            height: 20px;
+            width: 8px;
+            height: 16px;
             background: #38bdf8;
             animation: blink 1s infinite;
             vertical-align: middle;
             margin-left: 4px;
+        }
+        
+        @media (min-width: 768px) {
+            .cursor {
+                width: 10px;
+                height: 20px;
+            }
         }
         
         @keyframes blink {
@@ -158,14 +192,15 @@
             box-shadow: 0 20px 40px rgba(56, 189, 248, 0.1);
         }
         
-        /* Mobile Menu */
+        /* Mobile Menu - Slide Down */
         .mobile-menu {
-            transform: translateX(100%);
-            transition: transform 0.3s ease;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
         }
         
         .mobile-menu.active {
-            transform: translateX(0);
+            max-height: 400px;
         }
         
         /* Copy Tooltip */
@@ -195,16 +230,22 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #475569;
         }
+        
+        /* Prevent horizontal scroll */
+        * {
+            max-width: 100%;
+            box-sizing: border-box;
+        }
     </style>
 </head>
 <body class="text-gray-300 antialiased">
     
     <!-- Navbar -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-slate-bg/90 backdrop-blur-md border-b border-slate-border">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-slate-bg/95 backdrop-blur-md border-b border-slate-border">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex items-center justify-between h-14 md:h-16">
                 <!-- Logo -->
-                <a href="#" class="font-mono text-electric-blue text-lg font-semibold hover:text-white transition-colors">
+                <a href="#" class="font-mono text-electric-blue text-base md:text-lg font-semibold hover:text-white transition-colors">
                     &lt;ZainIqbal/&gt;
                 </a>
                 
@@ -221,19 +262,19 @@
                 </div>
                 
                 <!-- Mobile Menu Button -->
-                <button id="mobileMenuBtn" class="md:hidden text-gray-400 hover:text-white transition-colors">
-                    <i class="fas fa-bars text-xl"></i>
+                <button id="mobileMenuBtn" class="md:hidden text-gray-400 hover:text-white transition-colors p-2" aria-label="Toggle menu">
+                    <i class="fas fa-bars text-xl" id="menuIcon"></i>
                 </button>
             </div>
         </div>
         
-        <!-- Mobile Menu -->
-        <div id="mobileMenu" class="mobile-menu fixed top-16 right-0 bottom-0 w-64 bg-slate-card border-l border-slate-border md:hidden">
-            <div class="flex flex-col p-6 space-y-6">
-                <a href="#about" class="text-gray-300 hover:text-electric-blue transition-colors font-medium mobile-link">About</a>
-                <a href="#stack" class="text-gray-300 hover:text-electric-blue transition-colors font-medium mobile-link">Stack</a>
-                <a href="#projects" class="text-gray-300 hover:text-electric-blue transition-colors font-medium mobile-link">Projects</a>
-                <a href="#contact" class="text-gray-300 hover:text-electric-blue transition-colors font-medium mobile-link">Contact</a>
+        <!-- Mobile Menu - Slide Down -->
+        <div id="mobileMenu" class="mobile-menu md:hidden bg-slate-card border-t border-slate-border">
+            <div class="flex flex-col px-4 py-4 space-y-4">
+                <a href="#about" class="text-gray-300 hover:text-electric-blue transition-colors font-medium py-2 mobile-link">About</a>
+                <a href="#stack" class="text-gray-300 hover:text-electric-blue transition-colors font-medium py-2 mobile-link">Stack</a>
+                <a href="#projects" class="text-gray-300 hover:text-electric-blue transition-colors font-medium py-2 mobile-link">Projects</a>
+                <a href="#contact" class="text-gray-300 hover:text-electric-blue transition-colors font-medium py-2 mobile-link">Contact</a>
                 <a href="https://github.com/muhammadzainiqbal" target="_blank" rel="noopener noreferrer" 
                    class="bg-electric-blue text-slate-bg px-4 py-3 rounded-lg text-sm font-semibold hover:bg-electric-blue-dark transition-colors text-center">
                     <i class="fab fa-github mr-2"></i>View GitHub
@@ -243,41 +284,41 @@
     </nav>
     
     <!-- Hero Section -->
-    <section id="about" class="h-screen flex items-center pt-16">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-8">
-            <div class="grid lg:grid-cols-2 gap-8 lg:gap-10 items-center">
-                <!-- Left Content -->
-                <div class="order-2 lg:order-1">
-                    <p class="font-mono text-electric-blue text-sm mb-2 tracking-wide">// Welcome to my portfolio</p>
-                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
+    <section id="about" class="min-h-screen flex items-center pt-14 md:pt-16">
+        <div class="w-full max-w-6xl mx-auto px-4 py-8 md:py-6 lg:py-8">
+            <div class="flex flex-col lg:grid lg:grid-cols-2 gap-6 md:gap-8 lg:gap-10 items-center">
+                <!-- Left Content - Bio (shows first on mobile) -->
+                <div class="order-1 lg:order-1 w-full">
+                    <p class="font-mono text-electric-blue text-xs md:text-sm mb-2 tracking-wide">// Welcome to my portfolio</p>
+                    <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-3 md:mb-4">
                         Building <span class="gradient-text">Secure Infrastructure</span> & Robust Applications.
                     </h1>
-                    <p class="font-mono text-electric-blue text-base mb-3">
+                    <p class="font-mono text-electric-blue text-sm md:text-base mb-2 md:mb-3">
                         Aspiring DevSecOps Engineer | Full Stack .NET Developer
                     </p>
-                    <p class="text-gray-400 text-base leading-relaxed mb-5">
+                    <p class="text-gray-400 text-sm md:text-base leading-relaxed mb-4 md:mb-5">
                         Computer Science student at UET Lahore bridging the gap between Full Stack Development and Cloud Security. 
                         I specialize in building robust .NET applications and deploying them within secure, scalable DevSecOps pipelines. 
                         My focus is on <span class="text-electric-blue font-medium">shifting security left</span>—ensuring infrastructure is as bulletproof as the code itself.
                     </p>
                     <div class="flex flex-wrap gap-3">
-                        <a href="#projects" class="bg-electric-blue text-slate-bg px-5 py-2.5 rounded-lg font-semibold hover:bg-electric-blue-dark transition-colors text-sm">
+                        <a href="#projects" class="bg-electric-blue text-slate-bg px-4 md:px-5 py-2 md:py-2.5 rounded-lg font-semibold hover:bg-electric-blue-dark transition-colors text-sm">
                             View Projects
                         </a>
-                        <a href="#contact" class="border border-slate-border text-gray-300 px-5 py-2.5 rounded-lg font-semibold hover:border-electric-blue hover:text-electric-blue transition-colors text-sm">
+                        <a href="#contact" class="border border-slate-border text-gray-300 px-4 md:px-5 py-2 md:py-2.5 rounded-lg font-semibold hover:border-electric-blue hover:text-electric-blue transition-colors text-sm">
                             Get In Touch
                         </a>
                     </div>
                 </div>
                 
-                <!-- Right Content - Terminal -->
-                <div class="order-1 lg:order-2">
+                <!-- Right Content - Terminal (shows second on mobile) -->
+                <div class="order-2 lg:order-2 w-full">
                     <div class="terminal shadow-2xl">
                         <div class="terminal-header">
                             <div class="terminal-dot bg-red-500"></div>
                             <div class="terminal-dot bg-yellow-500"></div>
                             <div class="terminal-dot bg-green-500"></div>
-                            <span class="text-gray-500 text-sm ml-4 font-mono">mission-control</span>
+                            <span class="text-gray-500 text-xs md:text-sm ml-2 md:ml-4 font-mono">mission-control</span>
                         </div>
                         <div class="terminal-body" id="terminalBody">
                             <!-- Terminal lines will be injected by JS -->
@@ -289,23 +330,23 @@
     </section>
     
     <!-- Education & Certifications Section -->
-    <section class="py-20 border-t border-slate-border">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-2 gap-12">
+    <section class="py-12 md:py-20 border-t border-slate-border">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
                 <!-- Education -->
                 <div>
-                    <h2 class="font-mono text-2xl font-bold text-white mb-8">
+                    <h2 class="font-mono text-xl md:text-2xl font-bold text-white mb-6 md:mb-8">
                         <span class="text-electric-blue">#</span> Education
                     </h2>
-                    <div class="bg-slate-card border border-slate-border rounded-xl p-6">
-                        <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 bg-electric-blue/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                                <i class="fas fa-graduation-cap text-electric-blue text-xl"></i>
+                    <div class="bg-slate-card border border-slate-border rounded-xl p-4 md:p-6">
+                        <div class="flex items-start gap-3 md:gap-4">
+                            <div class="w-10 h-10 md:w-12 md:h-12 bg-electric-blue/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-graduation-cap text-electric-blue text-lg md:text-xl"></i>
                             </div>
                             <div>
-                                <h3 class="text-white font-semibold text-lg">BS Computer Science</h3>
-                                <p class="text-electric-blue font-medium">UET Lahore</p>
-                                <p class="text-gray-500 text-sm font-mono mt-1">2023 – Present</p>
+                                <h3 class="text-white font-semibold text-base md:text-lg">BS Computer Science</h3>
+                                <p class="text-electric-blue font-medium text-sm md:text-base">UET Lahore</p>
+                                <p class="text-gray-500 text-xs md:text-sm font-mono mt-1">2023 – Present</p>
                             </div>
                         </div>
                     </div>
@@ -313,47 +354,47 @@
                 
                 <!-- Certifications -->
                 <div>
-                    <h2 class="font-mono text-2xl font-bold text-white mb-8">
+                    <h2 class="font-mono text-xl md:text-2xl font-bold text-white mb-6 md:mb-8">
                         <span class="text-electric-blue">#</span> Certifications
                     </h2>
                     <div class="space-y-3">
                         <!-- Cisco Certified Ethical Hacker -->
                         <a href="https://drive.google.com/file/d/1WcBHSlx3FCsFDfZTwinzsUC-7Oj-Zc5R/view" target="_blank" rel="noopener noreferrer"
-                           class="cert-card bg-slate-card border border-slate-border rounded-xl p-4 flex items-center gap-4 group hover:border-electric-blue transition-all duration-300 cursor-pointer block">
-                            <div class="w-10 h-10 bg-green-500/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-green-500/20 transition-colors">
-                                <i class="fas fa-shield-halved text-green-400"></i>
+                           class="cert-card bg-slate-card border border-slate-border rounded-xl p-3 md:p-4 flex items-center gap-3 md:gap-4 group hover:border-electric-blue transition-all duration-300 cursor-pointer block">
+                            <div class="w-9 h-9 md:w-10 md:h-10 bg-green-500/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-green-500/20 transition-colors">
+                                <i class="fas fa-shield-halved text-green-400 text-sm md:text-base"></i>
                             </div>
                             <div class="flex-1 min-w-0">
-                                <h3 class="text-white font-medium text-sm group-hover:text-electric-blue transition-colors">Cisco Certified Ethical Hacker</h3>
+                                <h3 class="text-white font-medium text-xs md:text-sm group-hover:text-electric-blue transition-colors truncate">Cisco Certified Ethical Hacker</h3>
                                 <p class="text-gray-500 text-xs">Cisco</p>
                             </div>
-                            <i class="fas fa-external-link-alt text-gray-600 group-hover:text-electric-blue transition-colors text-sm"></i>
+                            <i class="fas fa-external-link-alt text-gray-600 group-hover:text-electric-blue transition-colors text-xs md:text-sm"></i>
                         </a>
                         
                         <!-- PenTest+: Attacks and Exploits -->
                         <a href="https://drive.google.com/file/d/1T5qSKm9TzKTJvqJfYtgFdKujTVvgL8Bg/view" target="_blank" rel="noopener noreferrer"
-                           class="cert-card bg-slate-card border border-slate-border rounded-xl p-4 flex items-center gap-4 group hover:border-electric-blue transition-all duration-300 cursor-pointer block">
-                            <div class="w-10 h-10 bg-purple-500/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-purple-500/20 transition-colors">
-                                <i class="fas fa-bug text-purple-400"></i>
+                           class="cert-card bg-slate-card border border-slate-border rounded-xl p-3 md:p-4 flex items-center gap-3 md:gap-4 group hover:border-electric-blue transition-all duration-300 cursor-pointer block">
+                            <div class="w-9 h-9 md:w-10 md:h-10 bg-purple-500/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-purple-500/20 transition-colors">
+                                <i class="fas fa-bug text-purple-400 text-sm md:text-base"></i>
                             </div>
                             <div class="flex-1 min-w-0">
-                                <h3 class="text-white font-medium text-sm group-hover:text-electric-blue transition-colors">PenTest+: Attacks and Exploits</h3>
+                                <h3 class="text-white font-medium text-xs md:text-sm group-hover:text-electric-blue transition-colors truncate">PenTest+: Attacks and Exploits</h3>
                                 <p class="text-gray-500 text-xs">Cybrary</p>
                             </div>
-                            <i class="fas fa-external-link-alt text-gray-600 group-hover:text-electric-blue transition-colors text-sm"></i>
+                            <i class="fas fa-external-link-alt text-gray-600 group-hover:text-electric-blue transition-colors text-xs md:text-sm"></i>
                         </a>
                         
                         <!-- PenTest+: Information Gathering and Vulnerability Scanning -->
                         <a href="https://drive.google.com/file/d/1J1H9wX6RW_PbfO8Wu-hcqsq-s57p7cs8/view" target="_blank" rel="noopener noreferrer"
-                           class="cert-card bg-slate-card border border-slate-border rounded-xl p-4 flex items-center gap-4 group hover:border-electric-blue transition-all duration-300 cursor-pointer block">
-                            <div class="w-10 h-10 bg-cyan-500/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-cyan-500/20 transition-colors">
-                                <i class="fas fa-crosshairs text-cyan-400"></i>
+                           class="cert-card bg-slate-card border border-slate-border rounded-xl p-3 md:p-4 flex items-center gap-3 md:gap-4 group hover:border-electric-blue transition-all duration-300 cursor-pointer block">
+                            <div class="w-9 h-9 md:w-10 md:h-10 bg-cyan-500/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-cyan-500/20 transition-colors">
+                                <i class="fas fa-crosshairs text-cyan-400 text-sm md:text-base"></i>
                             </div>
                             <div class="flex-1 min-w-0">
-                                <h3 class="text-white font-medium text-sm group-hover:text-electric-blue transition-colors">PenTest+: Info Gathering & Vuln Scanning</h3>
+                                <h3 class="text-white font-medium text-xs md:text-sm group-hover:text-electric-blue transition-colors truncate">PenTest+: Info Gathering & Vuln Scanning</h3>
                                 <p class="text-gray-500 text-xs">Cybrary</p>
                             </div>
-                            <i class="fas fa-external-link-alt text-gray-600 group-hover:text-electric-blue transition-colors text-sm"></i>
+                            <i class="fas fa-external-link-alt text-gray-600 group-hover:text-electric-blue transition-colors text-xs md:text-sm"></i>
                         </a>
                     </div>
                 </div>
@@ -362,76 +403,76 @@
     </section>
     
     <!-- Tech Stack Section -->
-    <section id="stack" class="py-20 border-t border-slate-border">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="font-mono text-3xl sm:text-4xl font-bold text-white mb-4">
+    <section id="stack" class="py-12 md:py-20 border-t border-slate-border">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-10 md:mb-16">
+                <h2 class="font-mono text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 md:mb-4">
                     <span class="text-electric-blue">&lt;</span>TechStack<span class="text-electric-blue">/&gt;</span>
                 </h2>
-                <p class="text-gray-400 max-w-2xl mx-auto">
+                <p class="text-gray-400 text-sm md:text-base max-w-2xl mx-auto px-4">
                     Technologies I work with to build secure, scalable, and performant applications.
                 </p>
             </div>
             
-            <div class="grid md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
                 <!-- Cloud & DevSecOps -->
-                <div class="tech-card bg-slate-card border border-slate-border rounded-xl p-6">
-                    <div class="w-12 h-12 bg-electric-blue/10 rounded-lg flex items-center justify-center mb-6">
-                        <i class="fas fa-cloud text-electric-blue text-2xl"></i>
+                <div class="tech-card bg-slate-card border border-slate-border rounded-xl p-4 md:p-6">
+                    <div class="w-10 h-10 md:w-12 md:h-12 bg-electric-blue/10 rounded-lg flex items-center justify-center mb-4 md:mb-6">
+                        <i class="fas fa-cloud text-electric-blue text-xl md:text-2xl"></i>
                     </div>
-                    <h3 class="font-mono text-white text-lg font-semibold mb-4">Cloud & DevSecOps</h3>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="flex items-center gap-2 bg-slate-bg px-3 py-2 rounded-lg text-sm text-gray-300">
+                    <h3 class="font-mono text-white text-base md:text-lg font-semibold mb-3 md:mb-4">Cloud & DevSecOps</h3>
+                    <div class="flex flex-wrap gap-2 md:gap-3">
+                        <span class="flex items-center gap-2 bg-slate-bg px-2 md:px-3 py-1.5 md:py-2 rounded-lg text-xs md:text-sm text-gray-300">
                             <i class="fab fa-docker text-blue-400"></i> Docker
                         </span>
-                        <span class="flex items-center gap-2 bg-slate-bg px-3 py-2 rounded-lg text-sm text-gray-300">
+                        <span class="flex items-center gap-2 bg-slate-bg px-2 md:px-3 py-1.5 md:py-2 rounded-lg text-xs md:text-sm text-gray-300">
                             <i class="fas fa-cube text-purple-400"></i> Terraform
                         </span>
-                        <span class="flex items-center gap-2 bg-slate-bg px-3 py-2 rounded-lg text-sm text-gray-300">
+                        <span class="flex items-center gap-2 bg-slate-bg px-2 md:px-3 py-1.5 md:py-2 rounded-lg text-xs md:text-sm text-gray-300">
                             <i class="fab fa-github text-gray-400"></i> GitHub Actions
                         </span>
-                        <span class="flex items-center gap-2 bg-slate-bg px-3 py-2 rounded-lg text-sm text-gray-300">
+                        <span class="flex items-center gap-2 bg-slate-bg px-2 md:px-3 py-1.5 md:py-2 rounded-lg text-xs md:text-sm text-gray-300">
                             <i class="fab fa-aws text-orange-400"></i> AWS
                         </span>
                     </div>
                 </div>
                 
                 <!-- Full Stack Development -->
-                <div class="tech-card bg-slate-card border border-slate-border rounded-xl p-6">
-                    <div class="w-12 h-12 bg-purple-500/10 rounded-lg flex items-center justify-center mb-6">
-                        <i class="fas fa-code text-purple-400 text-2xl"></i>
+                <div class="tech-card bg-slate-card border border-slate-border rounded-xl p-4 md:p-6">
+                    <div class="w-10 h-10 md:w-12 md:h-12 bg-purple-500/10 rounded-lg flex items-center justify-center mb-4 md:mb-6">
+                        <i class="fas fa-code text-purple-400 text-xl md:text-2xl"></i>
                     </div>
-                    <h3 class="font-mono text-white text-lg font-semibold mb-4">Full Stack Development</h3>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="flex items-center gap-2 bg-slate-bg px-3 py-2 rounded-lg text-sm text-gray-300">
+                    <h3 class="font-mono text-white text-base md:text-lg font-semibold mb-3 md:mb-4">Full Stack Development</h3>
+                    <div class="flex flex-wrap gap-2 md:gap-3">
+                        <span class="flex items-center gap-2 bg-slate-bg px-2 md:px-3 py-1.5 md:py-2 rounded-lg text-xs md:text-sm text-gray-300">
                             <i class="fas fa-hashtag text-violet-400"></i> C#
                         </span>
-                        <span class="flex items-center gap-2 bg-slate-bg px-3 py-2 rounded-lg text-sm text-gray-300">
+                        <span class="flex items-center gap-2 bg-slate-bg px-2 md:px-3 py-1.5 md:py-2 rounded-lg text-xs md:text-sm text-gray-300">
                             <i class="fas fa-server text-blue-400"></i> ASP.NET Core
                         </span>
-                        <span class="flex items-center gap-2 bg-slate-bg px-3 py-2 rounded-lg text-sm text-gray-300">
+                        <span class="flex items-center gap-2 bg-slate-bg px-2 md:px-3 py-1.5 md:py-2 rounded-lg text-xs md:text-sm text-gray-300">
                             <i class="fas fa-database text-red-400"></i> MSSQL
                         </span>
-                        <span class="flex items-center gap-2 bg-slate-bg px-3 py-2 rounded-lg text-sm text-gray-300">
+                        <span class="flex items-center gap-2 bg-slate-bg px-2 md:px-3 py-1.5 md:py-2 rounded-lg text-xs md:text-sm text-gray-300">
                             <i class="fab fa-react text-cyan-400"></i> React.js
                         </span>
                     </div>
                 </div>
                 
                 <!-- Core CS -->
-                <div class="tech-card bg-slate-card border border-slate-border rounded-xl p-6">
-                    <div class="w-12 h-12 bg-green-500/10 rounded-lg flex items-center justify-center mb-6">
-                        <i class="fas fa-microchip text-green-400 text-2xl"></i>
+                <div class="tech-card bg-slate-card border border-slate-border rounded-xl p-4 md:p-6 md:col-span-2 lg:col-span-1">
+                    <div class="w-10 h-10 md:w-12 md:h-12 bg-green-500/10 rounded-lg flex items-center justify-center mb-4 md:mb-6">
+                        <i class="fas fa-microchip text-green-400 text-xl md:text-2xl"></i>
                     </div>
-                    <h3 class="font-mono text-white text-lg font-semibold mb-4">Core CS</h3>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="flex items-center gap-2 bg-slate-bg px-3 py-2 rounded-lg text-sm text-gray-300">
+                    <h3 class="font-mono text-white text-base md:text-lg font-semibold mb-3 md:mb-4">Core CS</h3>
+                    <div class="flex flex-wrap gap-2 md:gap-3">
+                        <span class="flex items-center gap-2 bg-slate-bg px-2 md:px-3 py-1.5 md:py-2 rounded-lg text-xs md:text-sm text-gray-300">
                             <i class="fab fa-python text-yellow-400"></i> Python
                         </span>
-                        <span class="flex items-center gap-2 bg-slate-bg px-3 py-2 rounded-lg text-sm text-gray-300">
+                        <span class="flex items-center gap-2 bg-slate-bg px-2 md:px-3 py-1.5 md:py-2 rounded-lg text-xs md:text-sm text-gray-300">
                             <i class="fas fa-shield-alt text-red-400"></i> Network Security
                         </span>
-                        <span class="flex items-center gap-2 bg-slate-bg px-3 py-2 rounded-lg text-sm text-gray-300">
+                        <span class="flex items-center gap-2 bg-slate-bg px-2 md:px-3 py-1.5 md:py-2 rounded-lg text-xs md:text-sm text-gray-300">
                             <i class="fas fa-project-diagram text-blue-400"></i> Data Structures
                         </span>
                     </div>
@@ -441,41 +482,41 @@
     </section>
     
     <!-- Projects Section -->
-    <section id="projects" class="py-20 border-t border-slate-border">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="font-mono text-3xl sm:text-4xl font-bold text-white mb-4">
+    <section id="projects" class="py-12 md:py-20 border-t border-slate-border">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-10 md:mb-16">
+                <h2 class="font-mono text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 md:mb-4">
                     <span class="text-electric-blue">&lt;</span>FeaturedProjects<span class="text-electric-blue">/&gt;</span>
                 </h2>
-                <p class="text-gray-400 max-w-2xl mx-auto">
+                <p class="text-gray-400 text-sm md:text-base max-w-2xl mx-auto px-4">
                     A selection of projects showcasing my expertise in secure application development.
                 </p>
             </div>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
                 <!-- Project 1 -->
                 <div class="project-card bg-slate-card border border-slate-border rounded-xl overflow-hidden">
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="w-10 h-10 bg-electric-blue/10 rounded-lg flex items-center justify-center">
-                                <i class="fas fa-clipboard-check text-electric-blue"></i>
+                    <div class="p-4 md:p-6">
+                        <div class="flex items-center justify-between mb-3 md:mb-4">
+                            <div class="w-9 h-9 md:w-10 md:h-10 bg-electric-blue/10 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-clipboard-check text-electric-blue text-sm md:text-base"></i>
                             </div>
                             <a href="https://github.com/MuhammadZainIqbal/smart-attendence-managment-system" target="_blank" rel="noopener noreferrer" 
                                class="text-gray-500 hover:text-electric-blue transition-colors">
                                 <i class="fas fa-external-link-alt"></i>
                             </a>
                         </div>
-                        <h3 class="text-white font-semibold text-xl mb-3">Attendance Management System</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        <h3 class="text-white font-semibold text-lg md:text-xl mb-2 md:mb-3">Attendance Management System</h3>
+                        <p class="text-gray-400 text-xs md:text-sm leading-relaxed mb-4 md:mb-6">
                             An ASP.NET Core web application aimed at academic integrity. Features strict time-windowed logic to prevent proxy attendance and automated report generation for faculty.
                         </p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="bg-slate-bg text-electric-blue px-3 py-1 rounded-full text-xs font-mono">ASP.NET Core</span>
-                            <span class="bg-slate-bg text-electric-blue px-3 py-1 rounded-full text-xs font-mono">MSSQL</span>
-                            <span class="bg-slate-bg text-electric-blue px-3 py-1 rounded-full text-xs font-mono">C#</span>
+                        <div class="flex flex-wrap gap-1.5 md:gap-2 mb-4 md:mb-6">
+                            <span class="bg-slate-bg text-electric-blue px-2 md:px-3 py-1 rounded-full text-xs font-mono">ASP.NET Core</span>
+                            <span class="bg-slate-bg text-electric-blue px-2 md:px-3 py-1 rounded-full text-xs font-mono">MSSQL</span>
+                            <span class="bg-slate-bg text-electric-blue px-2 md:px-3 py-1 rounded-full text-xs font-mono">C#</span>
                         </div>
                         <a href="https://github.com/MuhammadZainIqbal/smart-attendence-managment-system" target="_blank" rel="noopener noreferrer"
-                           class="inline-flex items-center gap-2 text-electric-blue hover:text-white transition-colors font-medium text-sm">
+                           class="inline-flex items-center gap-2 text-electric-blue hover:text-white transition-colors font-medium text-xs md:text-sm">
                             <i class="fab fa-github"></i> View Code
                         </a>
                     </div>
@@ -483,54 +524,54 @@
                 
                 <!-- Project 2 -->
                 <div class="project-card bg-slate-card border border-slate-border rounded-xl overflow-hidden">
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="w-10 h-10 bg-purple-500/10 rounded-lg flex items-center justify-center">
-                                <i class="fas fa-vote-yea text-purple-400"></i>
+                    <div class="p-4 md:p-6">
+                        <div class="flex items-center justify-between mb-3 md:mb-4">
+                            <div class="w-9 h-9 md:w-10 md:h-10 bg-purple-500/10 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-vote-yea text-purple-400 text-sm md:text-base"></i>
                             </div>
                             <a href="https://github.com/MuhammadZainIqbal/Online_Voting_System" target="_blank" rel="noopener noreferrer" 
                                class="text-gray-500 hover:text-electric-blue transition-colors">
                                 <i class="fas fa-external-link-alt"></i>
                             </a>
                         </div>
-                        <h3 class="text-white font-semibold text-xl mb-3">Online Voting System</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        <h3 class="text-white font-semibold text-lg md:text-xl mb-2 md:mb-3">Online Voting System</h3>
+                        <p class="text-gray-400 text-xs md:text-sm leading-relaxed mb-4 md:mb-6">
                             A secure, full-stack voting platform utilizing blockchain concepts for auditability. Includes OTP verification and anonymous casting.
                         </p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="bg-slate-bg text-purple-400 px-3 py-1 rounded-full text-xs font-mono">React</span>
-                            <span class="bg-slate-bg text-purple-400 px-3 py-1 rounded-full text-xs font-mono">PostgreSQL</span>
-                            <span class="bg-slate-bg text-purple-400 px-3 py-1 rounded-full text-xs font-mono">Blockchain</span>
+                        <div class="flex flex-wrap gap-1.5 md:gap-2 mb-4 md:mb-6">
+                            <span class="bg-slate-bg text-purple-400 px-2 md:px-3 py-1 rounded-full text-xs font-mono">React</span>
+                            <span class="bg-slate-bg text-purple-400 px-2 md:px-3 py-1 rounded-full text-xs font-mono">PostgreSQL</span>
+                            <span class="bg-slate-bg text-purple-400 px-2 md:px-3 py-1 rounded-full text-xs font-mono">Blockchain</span>
                         </div>
                         <a href="https://github.com/MuhammadZainIqbal/Online_Voting_System" target="_blank" rel="noopener noreferrer"
-                           class="inline-flex items-center gap-2 text-electric-blue hover:text-white transition-colors font-medium text-sm">
+                           class="inline-flex items-center gap-2 text-electric-blue hover:text-white transition-colors font-medium text-xs md:text-sm">
                             <i class="fab fa-github"></i> View Code
                         </a>
                     </div>
                 </div>
                 
                 <!-- Project 3 -->
-                <div class="project-card bg-slate-card border border-slate-border rounded-xl overflow-hidden">
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="w-10 h-10 bg-green-500/10 rounded-lg flex items-center justify-center">
-                                <i class="fas fa-database text-green-400"></i>
+                <div class="project-card bg-slate-card border border-slate-border rounded-xl overflow-hidden md:col-span-2 lg:col-span-1">
+                    <div class="p-4 md:p-6">
+                        <div class="flex items-center justify-between mb-3 md:mb-4">
+                            <div class="w-9 h-9 md:w-10 md:h-10 bg-green-500/10 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-database text-green-400 text-sm md:text-base"></i>
                             </div>
                             <a href="https://github.com/MuhammadZainIqbal/MVCC_DeadLockDetection_2PL-Benchmark_Simulation" target="_blank" rel="noopener noreferrer" 
                                class="text-gray-500 hover:text-electric-blue transition-colors">
                                 <i class="fas fa-external-link-alt"></i>
                             </a>
                         </div>
-                        <h3 class="text-white font-semibold text-xl mb-3">DB Concurrency Simulator</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        <h3 class="text-white font-semibold text-lg md:text-xl mb-2 md:mb-3">DB Concurrency Simulator</h3>
+                        <p class="text-gray-400 text-xs md:text-sm leading-relaxed mb-4 md:mb-6">
                             A simulation of database engines implementing MVCC, Two-Phase Locking, and Deadlock Detection. Benchmarked for performance.
                         </p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="bg-slate-bg text-green-400 px-3 py-1 rounded-full text-xs font-mono">Python</span>
-                            <span class="bg-slate-bg text-green-400 px-3 py-1 rounded-full text-xs font-mono">Multi-threading</span>
+                        <div class="flex flex-wrap gap-1.5 md:gap-2 mb-4 md:mb-6">
+                            <span class="bg-slate-bg text-green-400 px-2 md:px-3 py-1 rounded-full text-xs font-mono">Python</span>
+                            <span class="bg-slate-bg text-green-400 px-2 md:px-3 py-1 rounded-full text-xs font-mono">Multi-threading</span>
                         </div>
                         <a href="https://github.com/MuhammadZainIqbal/MVCC_DeadLockDetection_2PL-Benchmark_Simulation" target="_blank" rel="noopener noreferrer"
-                           class="inline-flex items-center gap-2 text-electric-blue hover:text-white transition-colors font-medium text-sm">
+                           class="inline-flex items-center gap-2 text-electric-blue hover:text-white transition-colors font-medium text-xs md:text-sm">
                             <i class="fab fa-github"></i> View Code
                         </a>
                     </div>
@@ -540,31 +581,31 @@
     </section>
     
     <!-- Contact Section -->
-    <section id="contact" class="py-20 border-t border-slate-border">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="font-mono text-3xl sm:text-4xl font-bold text-white mb-4">
+    <section id="contact" class="py-12 md:py-20 border-t border-slate-border">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-10 md:mb-16">
+                <h2 class="font-mono text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 md:mb-4">
                     <span class="text-electric-blue">&lt;</span>GetInTouch<span class="text-electric-blue">/&gt;</span>
                 </h2>
-                <p class="text-gray-400 max-w-2xl mx-auto">
+                <p class="text-gray-400 text-sm md:text-base max-w-2xl mx-auto px-4">
                     Have a project in mind or want to discuss opportunities? Let's connect.
                 </p>
             </div>
             
             <div class="max-w-xl mx-auto">
-                <div class="bg-slate-card border border-slate-border rounded-xl p-8">
+                <div class="bg-slate-card border border-slate-border rounded-xl p-4 md:p-8">
                     <!-- Email -->
-                    <div class="flex items-center justify-between bg-slate-bg rounded-lg p-4 mb-6">
-                        <div class="flex items-center gap-4">
-                            <div class="w-10 h-10 bg-electric-blue/10 rounded-lg flex items-center justify-center">
-                                <i class="fas fa-envelope text-electric-blue"></i>
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 bg-slate-bg rounded-lg p-3 md:p-4 mb-4 md:mb-6">
+                        <div class="flex items-center gap-3 md:gap-4">
+                            <div class="w-9 h-9 md:w-10 md:h-10 bg-electric-blue/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-envelope text-electric-blue text-sm md:text-base"></i>
                             </div>
                             <div>
                                 <p class="text-gray-500 text-xs uppercase tracking-wide">Email</p>
-                                <p class="text-white font-mono text-sm" id="emailText">zainiqbal7007@gmail.com</p>
+                                <p class="text-white font-mono text-xs md:text-sm break-all" id="emailText">zainiqbal7007@gmail.com</p>
                             </div>
                         </div>
-                        <button id="copyEmailBtn" class="relative bg-slate-card hover:bg-slate-border text-gray-400 hover:text-white px-4 py-2 rounded-lg transition-colors text-sm">
+                        <button id="copyEmailBtn" class="relative bg-slate-card hover:bg-slate-border text-gray-400 hover:text-white px-3 md:px-4 py-2 rounded-lg transition-colors text-sm self-end sm:self-auto">
                             <i class="fas fa-copy"></i>
                             <span class="copy-tooltip absolute -top-10 left-1/2 transform -translate-x-1/2 bg-green-500 text-white text-xs px-3 py-1 rounded whitespace-nowrap">
                                 Copied!
@@ -573,18 +614,18 @@
                     </div>
                     
                     <!-- Social Links -->
-                    <div class="flex justify-center gap-4">
+                    <div class="flex justify-center gap-3 md:gap-4">
                         <a href="https://github.com/muhammadzainiqbal" target="_blank" rel="noopener noreferrer"
-                           class="w-12 h-12 bg-slate-bg hover:bg-electric-blue/10 border border-slate-border hover:border-electric-blue rounded-lg flex items-center justify-center text-gray-400 hover:text-electric-blue transition-all">
-                            <i class="fab fa-github text-xl"></i>
+                           class="w-11 h-11 md:w-12 md:h-12 bg-slate-bg hover:bg-electric-blue/10 border border-slate-border hover:border-electric-blue rounded-lg flex items-center justify-center text-gray-400 hover:text-electric-blue transition-all">
+                            <i class="fab fa-github text-lg md:text-xl"></i>
                         </a>
                         <a href="https://linkedin.com/in/muhammadzainiqbal" target="_blank" rel="noopener noreferrer"
-                           class="w-12 h-12 bg-slate-bg hover:bg-electric-blue/10 border border-slate-border hover:border-electric-blue rounded-lg flex items-center justify-center text-gray-400 hover:text-electric-blue transition-all">
-                            <i class="fab fa-linkedin-in text-xl"></i>
+                           class="w-11 h-11 md:w-12 md:h-12 bg-slate-bg hover:bg-electric-blue/10 border border-slate-border hover:border-electric-blue rounded-lg flex items-center justify-center text-gray-400 hover:text-electric-blue transition-all">
+                            <i class="fab fa-linkedin-in text-lg md:text-xl"></i>
                         </a>
                         <a href="mailto:zainiqbal7007@gmail.com"
-                           class="w-12 h-12 bg-slate-bg hover:bg-electric-blue/10 border border-slate-border hover:border-electric-blue rounded-lg flex items-center justify-center text-gray-400 hover:text-electric-blue transition-all">
-                            <i class="fas fa-envelope text-xl"></i>
+                           class="w-11 h-11 md:w-12 md:h-12 bg-slate-bg hover:bg-electric-blue/10 border border-slate-border hover:border-electric-blue rounded-lg flex items-center justify-center text-gray-400 hover:text-electric-blue transition-all">
+                            <i class="fas fa-envelope text-lg md:text-xl"></i>
                         </a>
                     </div>
                 </div>
@@ -593,10 +634,10 @@
     </section>
     
     <!-- Footer -->
-    <footer class="py-8 border-t border-slate-border">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-                <p class="text-gray-500 text-sm">
+    <footer class="py-6 md:py-8 border-t border-slate-border">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-3 md:gap-4">
+                <p class="text-gray-500 text-xs md:text-sm text-center md:text-left">
                     &copy; 2025 Zain Iqbal. All rights reserved.
                 </p>
                 <p class="font-mono text-gray-600 text-xs">
@@ -608,25 +649,33 @@
     
     <!-- JavaScript -->
     <script>
-        // Mobile Menu Toggle
+        // Mobile Menu Toggle - Slide Down
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
+        const menuIcon = document.getElementById('menuIcon');
         const mobileLinks = document.querySelectorAll('.mobile-link');
         
         mobileMenuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('active');
-            const icon = mobileMenuBtn.querySelector('i');
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-times');
+            menuIcon.classList.toggle('fa-bars');
+            menuIcon.classList.toggle('fa-times');
         });
         
         mobileLinks.forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.remove('active');
-                const icon = mobileMenuBtn.querySelector('i');
-                icon.classList.add('fa-bars');
-                icon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+                menuIcon.classList.remove('fa-times');
             });
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+                mobileMenu.classList.remove('active');
+                menuIcon.classList.add('fa-bars');
+                menuIcon.classList.remove('fa-times');
+            }
         });
         
         // Terminal Animation
@@ -679,7 +728,7 @@
                     observer.disconnect();
                 }
             });
-        }, { threshold: 0.5 });
+        }, { threshold: 0.3 });
         
         observer.observe(terminalBody);
         
