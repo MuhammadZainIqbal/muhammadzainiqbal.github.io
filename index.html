@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zain Iqbal | Systems &amp; Automation Engineer</title>
-    <meta name="description" content="Systems &amp; Automation Engineer specializing in autonomous infrastructure, AI-native orchestration, and security-first deployment pipelines. Operating globally.">
+    <meta name="description"
+        content="Systems &amp; Automation Engineer specializing in autonomous infrastructure, AI-native orchestration, and security-first deployment pipelines. Operating globally.">
 
     <!-- Favicon SVG -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⟩_</text></svg>">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⟩_</text></svg>">
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -15,7 +18,9 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -73,7 +78,10 @@
         }
 
         @media (min-width: 768px) {
-            .terminal-header { padding: 10px 14px; gap: 8px; }
+            .terminal-header {
+                padding: 10px 14px;
+                gap: 8px;
+            }
         }
 
         .terminal-dot {
@@ -83,7 +91,10 @@
         }
 
         @media (min-width: 768px) {
-            .terminal-dot { width: 12px; height: 12px; }
+            .terminal-dot {
+                width: 12px;
+                height: 12px;
+            }
         }
 
         .terminal-body {
@@ -110,11 +121,23 @@
             white-space: nowrap;
         }
 
-        .terminal-line .prompt  { color: #38bdf8; }
-        .terminal-line .command { color: #e6edf3; }
-        .terminal-line.success  { color: #3fb950; }
+        .terminal-line .prompt {
+            color: #38bdf8;
+        }
 
-        @keyframes fadeIn { to { opacity: 1; } }
+        .terminal-line .command {
+            color: #e6edf3;
+        }
+
+        .terminal-line.success {
+            color: #3fb950;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
 
         .cursor {
             display: inline-block;
@@ -127,12 +150,23 @@
         }
 
         @media (min-width: 768px) {
-            .cursor { width: 10px; height: 20px; }
+            .cursor {
+                width: 10px;
+                height: 20px;
+            }
         }
 
         @keyframes blink {
-            0%, 50%  { opacity: 1; }
-            51%, 100% { opacity: 0; }
+
+            0%,
+            50% {
+                opacity: 1;
+            }
+
+            51%,
+            100% {
+                opacity: 0;
+            }
         }
 
         /* ── Gradient Text ────────────────────────────────── */
@@ -210,33 +244,67 @@
             transition: max-height 0.3s ease-out;
         }
 
-        .mobile-menu.active { max-height: 450px; }
+        .mobile-menu.active {
+            max-height: 450px;
+        }
 
         /* ── Copy Tooltip ─────────────────────────────────── */
-        .copy-tooltip { opacity: 0; transition: opacity 0.3s ease; }
-        .copy-tooltip.show { opacity: 1; }
+        .copy-tooltip {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .copy-tooltip.show {
+            opacity: 1;
+        }
 
         /* ── Scrollbar ────────────────────────────────────── */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0f172a; }
-        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #475569; }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
 
         /* ── Global Box Sizing ────────────────────────────── */
-        * { max-width: 100%; box-sizing: border-box; }
+        * {
+            max-width: 100%;
+            box-sizing: border-box;
+        }
 
         /* ── Pulse Badge ──────────────────────────────────── */
         @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 0 8px rgba(56, 189, 248, 0.3); }
-            50%       { box-shadow: 0 0 22px rgba(56, 189, 248, 0.65); }
+
+            0%,
+            100% {
+                box-shadow: 0 0 8px rgba(56, 189, 248, 0.3);
+            }
+
+            50% {
+                box-shadow: 0 0 22px rgba(56, 189, 248, 0.65);
+            }
         }
-        .pulse-badge { animation: pulse-glow 2.8s ease-in-out infinite; }
+
+        .pulse-badge {
+            animation: pulse-glow 2.8s ease-in-out infinite;
+        }
 
         /* ── Smart Navbar (hide on scroll-down, show on scroll-up) ── */
         nav {
             transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-                        box-shadow 0.3s ease;
+                box-shadow 0.3s ease;
         }
+
         nav.nav-hidden {
             transform: translateY(-100%);
         }
@@ -245,52 +313,61 @@
         .hero-spotlight {
             position: relative;
         }
+
         .hero-spotlight::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(
-                ellipse 70% 60% at 72% 50%,
-                rgba(56, 189, 248, 0.055) 0%,
-                transparent 70%
-            );
+            background: radial-gradient(ellipse 70% 60% at 72% 50%,
+                    rgba(56, 189, 248, 0.055) 0%,
+                    transparent 70%);
             pointer-events: none;
             z-index: 0;
         }
-        .hero-spotlight > * {
+
+        .hero-spotlight>* {
             position: relative;
             z-index: 1;
         }
     </style>
 </head>
+
 <body class="text-gray-300 antialiased">
 
     <!-- ╔══════════════════════════════╗ -->
     <!-- ║            NAVBAR            ║ -->
     <!-- ╚══════════════════════════════╝ -->
-    <nav id="mainNav" class="fixed top-0 left-0 right-0 z-50 bg-slate-bg/80 backdrop-blur-md border-b border-slate-border/50">
+    <nav id="mainNav"
+        class="fixed top-0 left-0 right-0 z-50 bg-slate-bg/80 backdrop-blur-md border-b border-slate-border/50">
         <div class="max-w-6xl mx-auto px-4">
             <div class="flex items-center justify-between h-14 md:h-16">
                 <!-- Logo -->
-                <a href="#" class="font-mono text-electric-blue text-base md:text-lg font-semibold hover:text-white transition-colors">
+                <a href="#"
+                    class="font-mono text-electric-blue text-base md:text-lg font-semibold hover:text-white transition-colors">
                     &lt;ZainIqbal/&gt;
                 </a>
 
                 <!-- Desktop Navigation -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#about"    class="text-gray-400 hover:text-electric-blue transition-colors text-sm font-medium">About</a>
-                    <a href="#velocity" class="text-gray-400 hover:text-electric-blue transition-colors text-sm font-medium">Velocity</a>
-                    <a href="#stack"    class="text-gray-400 hover:text-electric-blue transition-colors text-sm font-medium">Stack</a>
-                    <a href="#projects" class="text-gray-400 hover:text-electric-blue transition-colors text-sm font-medium">Projects</a>
-                    <a href="#contact"  class="text-gray-400 hover:text-electric-blue transition-colors text-sm font-medium">Contact</a>
+                    <a href="#about"
+                        class="text-gray-400 hover:text-electric-blue transition-colors text-sm font-medium">About</a>
+                    <a href="#velocity"
+                        class="text-gray-400 hover:text-electric-blue transition-colors text-sm font-medium">Velocity</a>
+                    <a href="#stack"
+                        class="text-gray-400 hover:text-electric-blue transition-colors text-sm font-medium">Stack</a>
+                    <a href="#projects"
+                        class="text-gray-400 hover:text-electric-blue transition-colors text-sm font-medium">Projects</a>
+                    <a href="#contact"
+                        class="text-gray-400 hover:text-electric-blue transition-colors text-sm font-medium">Contact</a>
                     <a href="https://github.com/muhammadzainiqbal" target="_blank" rel="noopener noreferrer"
-                       class="border border-electric-blue text-electric-blue px-4 py-2 rounded-lg text-sm font-semibold hover:bg-electric-blue/10 transition-colors">
+                        class="border border-electric-blue text-electric-blue px-4 py-2 rounded-lg text-sm font-semibold hover:bg-electric-blue/10 transition-colors">
                         <i class="fab fa-github mr-2"></i>View GitHub
                     </a>
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <button id="mobileMenuBtn" class="md:hidden text-gray-400 hover:text-white transition-colors p-2" aria-label="Toggle menu">
+                <button id="mobileMenuBtn" class="md:hidden text-gray-400 hover:text-white transition-colors p-2"
+                    aria-label="Toggle menu">
                     <i class="fas fa-bars text-xl" id="menuIcon"></i>
                 </button>
             </div>
@@ -299,13 +376,18 @@
         <!-- Mobile Menu -->
         <div id="mobileMenu" class="mobile-menu md:hidden bg-slate-card border-t border-slate-border">
             <div class="flex flex-col px-4 py-4 space-y-4">
-                <a href="#about"    class="text-gray-300 hover:text-electric-blue transition-colors font-medium py-2 mobile-link">About</a>
-                <a href="#velocity" class="text-gray-300 hover:text-electric-blue transition-colors font-medium py-2 mobile-link">Velocity</a>
-                <a href="#stack"    class="text-gray-300 hover:text-electric-blue transition-colors font-medium py-2 mobile-link">Stack</a>
-                <a href="#projects" class="text-gray-300 hover:text-electric-blue transition-colors font-medium py-2 mobile-link">Projects</a>
-                <a href="#contact"  class="text-gray-300 hover:text-electric-blue transition-colors font-medium py-2 mobile-link">Contact</a>
+                <a href="#about"
+                    class="text-gray-300 hover:text-electric-blue transition-colors font-medium py-2 mobile-link">About</a>
+                <a href="#velocity"
+                    class="text-gray-300 hover:text-electric-blue transition-colors font-medium py-2 mobile-link">Velocity</a>
+                <a href="#stack"
+                    class="text-gray-300 hover:text-electric-blue transition-colors font-medium py-2 mobile-link">Stack</a>
+                <a href="#projects"
+                    class="text-gray-300 hover:text-electric-blue transition-colors font-medium py-2 mobile-link">Projects</a>
+                <a href="#contact"
+                    class="text-gray-300 hover:text-electric-blue transition-colors font-medium py-2 mobile-link">Contact</a>
                 <a href="https://github.com/muhammadzainiqbal" target="_blank" rel="noopener noreferrer"
-                   class="border border-electric-blue text-electric-blue px-4 py-3 rounded-lg text-sm font-semibold hover:bg-electric-blue/10 transition-colors text-center">
+                    class="border border-electric-blue text-electric-blue px-4 py-3 rounded-lg text-sm font-semibold hover:bg-electric-blue/10 transition-colors text-center">
                     <i class="fab fa-github mr-2"></i>View GitHub
                 </a>
             </div>
@@ -321,25 +403,30 @@
 
                 <!-- Bio -->
                 <div class="order-1 lg:order-1 w-full">
-                    <p class="font-mono text-electric-blue text-xs md:text-sm mb-2 tracking-wide">// Systems &amp; Automation · DevSecOps · Agentic AI</p>
+                    <p class="font-mono text-electric-blue text-xs md:text-sm mb-2 tracking-wide">// Systems &amp;
+                        Automation · DevSecOps · Agentic AI</p>
                     <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight mb-2 md:mb-3">
                         Engineering <span class="gradient-text">Autonomous Systems</span> That Ship Secure at Scale.
                     </h1>
                     <p class="font-mono text-electric-blue text-sm md:text-base mb-2 md:mb-3">
-                        Systems &amp; Automation Engineer | <span class="text-gray-400">AI-Native Orchestration | Shifting Security Left at Scale.</span>
+                        Systems &amp; Automation Engineer | <span class="text-gray-400">AI-Native Orchestration |
+                            Shifting Security Left at Scale.</span>
                     </p>
                     <p class="text-gray-400 text-sm md:text-base leading-relaxed mb-4 md:mb-5">
-                        I orchestrate <span class="text-white font-medium">autonomous infrastructure</span> engineered for high availability and
-                        security-first logic. Threat modeling and automated validation are built into the pipeline — not bolted on.
-                        AI agents serve as the <span class="text-white font-medium">force multiplier</span> for implementation velocity.
+                        I orchestrate <span class="text-white font-medium">autonomous infrastructure</span> engineered
+                        for high availability and
+                        security-first logic. Threat modeling and automated validation are built into the pipeline — not
+                        bolted on.
+                        AI agents serve as the <span class="text-white font-medium">force multiplier</span> for
+                        implementation velocity.
                     </p>
                     <div class="flex flex-wrap gap-3">
                         <a href="#projects"
-                           class="bg-electric-blue text-slate-bg px-4 md:px-5 py-2 md:py-2.5 rounded-lg font-semibold hover:bg-electric-blue-dark transition-colors text-sm">
+                            class="bg-electric-blue text-slate-bg px-4 md:px-5 py-2 md:py-2.5 rounded-lg font-semibold hover:bg-electric-blue-dark transition-colors text-sm">
                             View Projects
                         </a>
                         <a href="#contact"
-                           class="border border-slate-border text-gray-300 px-4 md:px-5 py-2 md:py-2.5 rounded-lg font-semibold hover:border-electric-blue hover:text-electric-blue transition-colors text-sm">
+                            class="border border-slate-border text-gray-300 px-4 md:px-5 py-2 md:py-2.5 rounded-lg font-semibold hover:border-electric-blue hover:text-electric-blue transition-colors text-sm">
                             Get In Touch
                         </a>
                     </div>
@@ -352,7 +439,8 @@
                             <div class="terminal-dot bg-red-500"></div>
                             <div class="terminal-dot bg-yellow-500"></div>
                             <div class="terminal-dot bg-green-500"></div>
-                            <span class="text-gray-500 text-xs md:text-sm ml-2 md:ml-4 font-mono">agent-control-plane</span>
+                            <span
+                                class="text-gray-500 text-xs md:text-sm ml-2 md:ml-4 font-mono">agent-control-plane</span>
                         </div>
                         <div class="terminal-body" id="terminalBody">
                             <!-- Injected by JS -->
@@ -378,7 +466,8 @@
                     </h2>
                     <div class="glass-card rounded-xl p-4 md:p-6">
                         <div class="flex items-start gap-3 md:gap-4">
-                            <div class="w-10 h-10 md:w-12 md:h-12 bg-electric-blue/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <div
+                                class="w-10 h-10 md:w-12 md:h-12 bg-electric-blue/10 rounded-lg flex items-center justify-center flex-shrink-0">
                                 <i class="fas fa-graduation-cap text-electric-blue text-lg md:text-xl"></i>
                             </div>
                             <div>
@@ -396,40 +485,55 @@
                         <span class="text-electric-blue">#</span> Certifications
                     </h2>
                     <div class="space-y-3">
-                        <a href="https://drive.google.com/file/d/1WcBHSlx3FCsFDfZTwinzsUC-7Oj-Zc5R/view" target="_blank" rel="noopener noreferrer"
-                           class="cert-card rounded-xl p-3 md:p-4 flex items-center gap-3 md:gap-4 group cursor-pointer block">
-                            <div class="w-9 h-9 md:w-10 md:h-10 bg-green-500/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-green-500/20 transition-colors">
+                        <a href="https://drive.google.com/file/d/1WcBHSlx3FCsFDfZTwinzsUC-7Oj-Zc5R/view" target="_blank"
+                            rel="noopener noreferrer"
+                            class="cert-card rounded-xl p-3 md:p-4 flex items-center gap-3 md:gap-4 group cursor-pointer block">
+                            <div
+                                class="w-9 h-9 md:w-10 md:h-10 bg-green-500/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-green-500/20 transition-colors">
                                 <i class="fas fa-shield-halved text-green-400 text-sm md:text-base"></i>
                             </div>
                             <div class="flex-1 min-w-0">
-                                <h3 class="text-white font-medium text-xs md:text-sm group-hover:text-electric-blue transition-colors truncate">Cisco Certified Ethical Hacker</h3>
+                                <h3
+                                    class="text-white font-medium text-xs md:text-sm group-hover:text-electric-blue transition-colors truncate">
+                                    Cisco Certified Ethical Hacker</h3>
                                 <p class="text-gray-500 text-xs">Cisco</p>
                             </div>
-                            <i class="fas fa-external-link-alt text-gray-600 group-hover:text-electric-blue transition-colors text-xs md:text-sm"></i>
+                            <i
+                                class="fas fa-external-link-alt text-gray-600 group-hover:text-electric-blue transition-colors text-xs md:text-sm"></i>
                         </a>
 
-                        <a href="https://drive.google.com/file/d/1T5qSKm9TzKTJvqJfYtgFdKujTVvgL8Bg/view" target="_blank" rel="noopener noreferrer"
-                           class="cert-card rounded-xl p-3 md:p-4 flex items-center gap-3 md:gap-4 group cursor-pointer block">
-                            <div class="w-9 h-9 md:w-10 md:h-10 bg-purple-500/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-purple-500/20 transition-colors">
+                        <a href="https://drive.google.com/file/d/1T5qSKm9TzKTJvqJfYtgFdKujTVvgL8Bg/view" target="_blank"
+                            rel="noopener noreferrer"
+                            class="cert-card rounded-xl p-3 md:p-4 flex items-center gap-3 md:gap-4 group cursor-pointer block">
+                            <div
+                                class="w-9 h-9 md:w-10 md:h-10 bg-purple-500/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-purple-500/20 transition-colors">
                                 <i class="fas fa-bug text-purple-400 text-sm md:text-base"></i>
                             </div>
                             <div class="flex-1 min-w-0">
-                                <h3 class="text-white font-medium text-xs md:text-sm group-hover:text-electric-blue transition-colors truncate">PenTest+: Attacks and Exploits</h3>
+                                <h3
+                                    class="text-white font-medium text-xs md:text-sm group-hover:text-electric-blue transition-colors truncate">
+                                    PenTest+: Attacks and Exploits</h3>
                                 <p class="text-gray-500 text-xs">Cybrary</p>
                             </div>
-                            <i class="fas fa-external-link-alt text-gray-600 group-hover:text-electric-blue transition-colors text-xs md:text-sm"></i>
+                            <i
+                                class="fas fa-external-link-alt text-gray-600 group-hover:text-electric-blue transition-colors text-xs md:text-sm"></i>
                         </a>
 
-                        <a href="https://drive.google.com/file/d/1J1H9wX6RW_PbfO8Wu-hcqsq-s57p7cs8/view" target="_blank" rel="noopener noreferrer"
-                           class="cert-card rounded-xl p-3 md:p-4 flex items-center gap-3 md:gap-4 group cursor-pointer block">
-                            <div class="w-9 h-9 md:w-10 md:h-10 bg-cyan-500/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-cyan-500/20 transition-colors">
+                        <a href="https://drive.google.com/file/d/1J1H9wX6RW_PbfO8Wu-hcqsq-s57p7cs8/view" target="_blank"
+                            rel="noopener noreferrer"
+                            class="cert-card rounded-xl p-3 md:p-4 flex items-center gap-3 md:gap-4 group cursor-pointer block">
+                            <div
+                                class="w-9 h-9 md:w-10 md:h-10 bg-cyan-500/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-cyan-500/20 transition-colors">
                                 <i class="fas fa-crosshairs text-cyan-400 text-sm md:text-base"></i>
                             </div>
                             <div class="flex-1 min-w-0">
-                                <h3 class="text-white font-medium text-xs md:text-sm group-hover:text-electric-blue transition-colors truncate">PenTest+: Info Gathering &amp; Vuln Scanning</h3>
+                                <h3
+                                    class="text-white font-medium text-xs md:text-sm group-hover:text-electric-blue transition-colors truncate">
+                                    PenTest+: Info Gathering &amp; Vuln Scanning</h3>
                                 <p class="text-gray-500 text-xs">Cybrary</p>
                             </div>
-                            <i class="fas fa-external-link-alt text-gray-600 group-hover:text-electric-blue transition-colors text-xs md:text-sm"></i>
+                            <i
+                                class="fas fa-external-link-alt text-gray-600 group-hover:text-electric-blue transition-colors text-xs md:text-sm"></i>
                         </a>
                     </div>
                 </div>
@@ -445,7 +549,8 @@
         <div class="max-w-6xl mx-auto px-4">
             <div class="text-center mb-10 md:mb-16">
                 <h2 class="font-mono text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 md:mb-4">
-                    <span class="text-electric-blue">&lt;</span>DevelopmentVelocity<span class="text-electric-blue">/&gt;</span>
+                    <span class="text-electric-blue">&lt;</span>DevelopmentVelocity<span
+                        class="text-electric-blue">/&gt;</span>
                 </h2>
                 <p class="text-gray-400 text-sm md:text-base max-w-2xl mx-auto px-4">
                     Neural Workflows — Human architecture. AI-amplified throughput.
@@ -457,15 +562,19 @@
                 <!-- Left: The Model -->
                 <div class="glass-card rounded-xl p-6 md:p-8">
                     <div class="flex items-center gap-3 mb-5">
-                        <div class="w-10 h-10 bg-electric-blue/10 rounded-lg flex items-center justify-center flex-shrink-0 pulse-badge">
+                        <div
+                            class="w-10 h-10 bg-electric-blue/10 rounded-lg flex items-center justify-center flex-shrink-0 pulse-badge">
                             <i class="fas fa-brain text-electric-blue"></i>
                         </div>
                         <h3 class="font-mono text-white text-lg font-semibold">The Neural Force Multiplier</h3>
                     </div>
                     <p class="text-gray-400 text-sm leading-relaxed mb-4">
-                        I operate with <span class="text-electric-blue font-medium">Cursor, Claude, and Cline</span> as an integrated
-                        execution layer — not as assistants, but as a coordinated implementation engine. I own the high-level
-                        system architecture, security threat models, and business logic. The AI agents handle implementation
+                        I operate with <span class="text-electric-blue font-medium">Cursor, Claude, and Cline</span> as
+                        an integrated
+                        execution layer — not as assistants, but as a coordinated implementation engine. I own the
+                        high-level
+                        system architecture, security threat models, and business logic. The AI agents handle
+                        implementation
                         throughput, boilerplate elimination, and rapid iteration cycles.
                     </p>
                     <p class="text-gray-400 text-sm leading-relaxed">
@@ -479,36 +588,42 @@
                 <div class="space-y-4">
                     <div class="glass-card rounded-xl p-4 md:p-5 group">
                         <div class="flex items-center gap-4">
-                            <div class="w-10 h-10 bg-violet-500/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-violet-500/20 transition-colors">
+                            <div
+                                class="w-10 h-10 bg-violet-500/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-violet-500/20 transition-colors">
                                 <i class="fas fa-terminal text-violet-400"></i>
                             </div>
                             <div>
                                 <h4 class="text-white font-semibold text-sm">Cursor IDE</h4>
-                                <p class="text-gray-500 text-xs mt-0.5">AI-first editor. Context-aware, codebase-wide agentic execution across the entire project graph.</p>
+                                <p class="text-gray-500 text-xs mt-0.5">AI-first editor. Context-aware, codebase-wide
+                                    agentic execution across the entire project graph.</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="glass-card rounded-xl p-4 md:p-5 group">
                         <div class="flex items-center gap-4">
-                            <div class="w-10 h-10 bg-orange-500/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-orange-500/20 transition-colors">
+                            <div
+                                class="w-10 h-10 bg-orange-500/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-orange-500/20 transition-colors">
                                 <i class="fas fa-robot text-orange-400"></i>
                             </div>
                             <div>
                                 <h4 class="text-white font-semibold text-sm">Claude (Anthropic)</h4>
-                                <p class="text-gray-500 text-xs mt-0.5">Primary reasoning engine. Architecture review, threat modeling, and complex logic synthesis.</p>
+                                <p class="text-gray-500 text-xs mt-0.5">Primary reasoning engine. Architecture review,
+                                    threat modeling, and complex logic synthesis.</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="glass-card rounded-xl p-4 md:p-5 group">
                         <div class="flex items-center gap-4">
-                            <div class="w-10 h-10 bg-green-500/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-green-500/20 transition-colors">
+                            <div
+                                class="w-10 h-10 bg-green-500/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-green-500/20 transition-colors">
                                 <i class="fas fa-code-branch text-green-400"></i>
                             </div>
                             <div>
                                 <h4 class="text-white font-semibold text-sm">Cline</h4>
-                                <p class="text-gray-500 text-xs mt-0.5">Autonomous coding agent. Multi-file edits, shell execution, and end-to-end task completion with zero hand-holding.</p>
+                                <p class="text-gray-500 text-xs mt-0.5">Autonomous coding agent. Multi-file edits, shell
+                                    execution, and end-to-end task completion with zero hand-holding.</p>
                             </div>
                         </div>
                     </div>
@@ -516,9 +631,11 @@
                     <!-- Metric card -->
                     <div class="glass-card rounded-xl p-4 md:p-5" style="border-color: rgba(56,189,248,0.25);">
                         <p class="font-mono text-xs text-gray-600 mb-2">// output_model</p>
-                        <p class="text-electric-blue font-mono text-sm">Human provides  → Architecture + Security Judgment</p>
+                        <p class="text-electric-blue font-mono text-sm">Human provides → Architecture + Security
+                            Judgment</p>
                         <p class="text-gray-400 font-mono text-sm">AI Agents provide → Implementation Throughput</p>
-                        <p class="text-green-400 font-mono text-xs mt-2">→ Net result: 10× velocity. Zero quality compromise.</p>
+                        <p class="text-green-400 font-mono text-xs mt-2">→ Net result: 10× velocity. Zero quality
+                            compromise.</p>
                     </div>
                 </div>
 
@@ -544,20 +661,25 @@
 
                 <!-- Agentic AI & Automation — FEATURED -->
                 <div class="tech-card rounded-xl p-4 md:p-6 md:col-span-2 xl:col-span-1"
-                     style="border-color: rgba(56,189,248,0.3); box-shadow: 0 0 20px rgba(56,189,248,0.07);">
-                    <div class="w-10 h-10 md:w-12 md:h-12 bg-electric-blue/15 rounded-lg flex items-center justify-center mb-4 md:mb-5 pulse-badge">
+                    style="border-color: rgba(56,189,248,0.3); box-shadow: 0 0 20px rgba(56,189,248,0.07);">
+                    <div
+                        class="w-10 h-10 md:w-12 md:h-12 bg-electric-blue/15 rounded-lg flex items-center justify-center mb-4 md:mb-5 pulse-badge">
                         <i class="fas fa-microchip text-electric-blue text-xl md:text-2xl"></i>
                     </div>
-                    <h3 class="font-mono text-white text-base md:text-lg font-semibold mb-1">Agentic AI &amp; Automation</h3>
+                    <h3 class="font-mono text-white text-base md:text-lg font-semibold mb-1">Agentic AI &amp; Automation
+                    </h3>
                     <p class="text-gray-600 text-xs mb-3 font-mono">// primary_stack</p>
                     <div class="flex flex-wrap gap-2 md:gap-3">
-                        <span class="flex items-center gap-2 bg-slate-bg px-2 md:px-3 py-1.5 md:py-2 rounded-lg text-xs md:text-sm text-gray-300">
+                        <span
+                            class="flex items-center gap-2 bg-slate-bg px-2 md:px-3 py-1.5 md:py-2 rounded-lg text-xs md:text-sm text-gray-300">
                             <i class="fas fa-network-wired text-electric-blue"></i> LLM Orchestration
                         </span>
-                        <span class="flex items-center gap-2 bg-slate-bg px-2 md:px-3 py-1.5 md:py-2 rounded-lg text-xs md:text-sm text-gray-300">
+                        <span
+                            class="flex items-center gap-2 bg-slate-bg px-2 md:px-3 py-1.5 md:py-2 rounded-lg text-xs md:text-sm text-gray-300">
                             <i class="fas fa-wand-magic-sparkles text-purple-400"></i> Prompt Engineering
                         </span>
-                        <span class="flex items-center gap-2 bg-slate-bg px-2 md:px-3 py-1.5 md:py-2 rounded-lg text-xs md:text-sm text-gray-300">
+                        <span
+                            class="flex items-center gap-2 bg-slate-bg px-2 md:px-3 py-1.5 md:py-2 rounded-lg text-xs md:text-sm text-gray-300">
                             <i class="fas fa-gears text-cyan-400"></i> Workflow Automation
                         </span>
                     </div>
@@ -565,21 +687,27 @@
 
                 <!-- Cloud & DevSecOps -->
                 <div class="tech-card rounded-xl p-4 md:p-6">
-                    <div class="w-10 h-10 md:w-12 md:h-12 bg-electric-blue/10 rounded-lg flex items-center justify-center mb-4 md:mb-5">
+                    <div
+                        class="w-10 h-10 md:w-12 md:h-12 bg-electric-blue/10 rounded-lg flex items-center justify-center mb-4 md:mb-5">
                         <i class="fas fa-cloud text-electric-blue text-xl md:text-2xl"></i>
                     </div>
-                    <h3 class="font-mono text-white text-base md:text-lg font-semibold mb-3 md:mb-4">Cloud &amp; DevSecOps</h3>
+                    <h3 class="font-mono text-white text-base md:text-lg font-semibold mb-3 md:mb-4">Cloud &amp;
+                        DevSecOps</h3>
                     <div class="flex flex-wrap gap-2 md:gap-3">
-                        <span class="flex items-center gap-2 bg-slate-bg px-2 md:px-3 py-1.5 md:py-2 rounded-lg text-xs md:text-sm text-gray-300">
+                        <span
+                            class="flex items-center gap-2 bg-slate-bg px-2 md:px-3 py-1.5 md:py-2 rounded-lg text-xs md:text-sm text-gray-300">
                             <i class="fab fa-docker text-blue-400"></i> Docker
                         </span>
-                        <span class="flex items-center gap-2 bg-slate-bg px-2 md:px-3 py-1.5 md:py-2 rounded-lg text-xs md:text-sm text-gray-300">
+                        <span
+                            class="flex items-center gap-2 bg-slate-bg px-2 md:px-3 py-1.5 md:py-2 rounded-lg text-xs md:text-sm text-gray-300">
                             <i class="fas fa-cube text-purple-400"></i> Terraform
                         </span>
-                        <span class="flex items-center gap-2 bg-slate-bg px-2 md:px-3 py-1.5 md:py-2 rounded-lg text-xs md:text-sm text-gray-300">
+                        <span
+                            class="flex items-center gap-2 bg-slate-bg px-2 md:px-3 py-1.5 md:py-2 rounded-lg text-xs md:text-sm text-gray-300">
                             <i class="fab fa-github text-gray-400"></i> GitHub Actions
                         </span>
-                        <span class="flex items-center gap-2 bg-slate-bg px-2 md:px-3 py-1.5 md:py-2 rounded-lg text-xs md:text-sm text-gray-300">
+                        <span
+                            class="flex items-center gap-2 bg-slate-bg px-2 md:px-3 py-1.5 md:py-2 rounded-lg text-xs md:text-sm text-gray-300">
                             <i class="fab fa-aws text-orange-400"></i> AWS
                         </span>
                     </div>
@@ -587,21 +715,27 @@
 
                 <!-- Full Stack Development -->
                 <div class="tech-card rounded-xl p-4 md:p-6">
-                    <div class="w-10 h-10 md:w-12 md:h-12 bg-purple-500/10 rounded-lg flex items-center justify-center mb-4 md:mb-5">
+                    <div
+                        class="w-10 h-10 md:w-12 md:h-12 bg-purple-500/10 rounded-lg flex items-center justify-center mb-4 md:mb-5">
                         <i class="fas fa-code text-purple-400 text-xl md:text-2xl"></i>
                     </div>
-                    <h3 class="font-mono text-white text-base md:text-lg font-semibold mb-3 md:mb-4">Full Stack Development</h3>
+                    <h3 class="font-mono text-white text-base md:text-lg font-semibold mb-3 md:mb-4">Full Stack
+                        Development</h3>
                     <div class="flex flex-wrap gap-2 md:gap-3">
-                        <span class="flex items-center gap-2 bg-slate-bg px-2 md:px-3 py-1.5 md:py-2 rounded-lg text-xs md:text-sm text-gray-300">
+                        <span
+                            class="flex items-center gap-2 bg-slate-bg px-2 md:px-3 py-1.5 md:py-2 rounded-lg text-xs md:text-sm text-gray-300">
                             <i class="fas fa-hashtag text-violet-400"></i> C#
                         </span>
-                        <span class="flex items-center gap-2 bg-slate-bg px-2 md:px-3 py-1.5 md:py-2 rounded-lg text-xs md:text-sm text-gray-300">
+                        <span
+                            class="flex items-center gap-2 bg-slate-bg px-2 md:px-3 py-1.5 md:py-2 rounded-lg text-xs md:text-sm text-gray-300">
                             <i class="fas fa-server text-blue-400"></i> ASP.NET Core
                         </span>
-                        <span class="flex items-center gap-2 bg-slate-bg px-2 md:px-3 py-1.5 md:py-2 rounded-lg text-xs md:text-sm text-gray-300">
+                        <span
+                            class="flex items-center gap-2 bg-slate-bg px-2 md:px-3 py-1.5 md:py-2 rounded-lg text-xs md:text-sm text-gray-300">
                             <i class="fas fa-database text-red-400"></i> MSSQL
                         </span>
-                        <span class="flex items-center gap-2 bg-slate-bg px-2 md:px-3 py-1.5 md:py-2 rounded-lg text-xs md:text-sm text-gray-300">
+                        <span
+                            class="flex items-center gap-2 bg-slate-bg px-2 md:px-3 py-1.5 md:py-2 rounded-lg text-xs md:text-sm text-gray-300">
                             <i class="fab fa-react text-cyan-400"></i> React.js
                         </span>
                     </div>
@@ -609,18 +743,23 @@
 
                 <!-- Security & Core CS -->
                 <div class="tech-card rounded-xl p-4 md:p-6">
-                    <div class="w-10 h-10 md:w-12 md:h-12 bg-green-500/10 rounded-lg flex items-center justify-center mb-4 md:mb-5">
+                    <div
+                        class="w-10 h-10 md:w-12 md:h-12 bg-green-500/10 rounded-lg flex items-center justify-center mb-4 md:mb-5">
                         <i class="fas fa-shield-alt text-green-400 text-xl md:text-2xl"></i>
                     </div>
-                    <h3 class="font-mono text-white text-base md:text-lg font-semibold mb-3 md:mb-4">Security &amp; Core CS</h3>
+                    <h3 class="font-mono text-white text-base md:text-lg font-semibold mb-3 md:mb-4">Security &amp; Core
+                        CS</h3>
                     <div class="flex flex-wrap gap-2 md:gap-3">
-                        <span class="flex items-center gap-2 bg-slate-bg px-2 md:px-3 py-1.5 md:py-2 rounded-lg text-xs md:text-sm text-gray-300">
+                        <span
+                            class="flex items-center gap-2 bg-slate-bg px-2 md:px-3 py-1.5 md:py-2 rounded-lg text-xs md:text-sm text-gray-300">
                             <i class="fab fa-python text-yellow-400"></i> Python
                         </span>
-                        <span class="flex items-center gap-2 bg-slate-bg px-2 md:px-3 py-1.5 md:py-2 rounded-lg text-xs md:text-sm text-gray-300">
+                        <span
+                            class="flex items-center gap-2 bg-slate-bg px-2 md:px-3 py-1.5 md:py-2 rounded-lg text-xs md:text-sm text-gray-300">
                             <i class="fas fa-user-secret text-red-400"></i> Ethical Hacking
                         </span>
-                        <span class="flex items-center gap-2 bg-slate-bg px-2 md:px-3 py-1.5 md:py-2 rounded-lg text-xs md:text-sm text-gray-300">
+                        <span
+                            class="flex items-center gap-2 bg-slate-bg px-2 md:px-3 py-1.5 md:py-2 rounded-lg text-xs md:text-sm text-gray-300">
                             <i class="fas fa-project-diagram text-blue-400"></i> Threat Modeling
                         </span>
                     </div>
@@ -637,7 +776,8 @@
         <div class="max-w-6xl mx-auto px-4">
             <div class="text-center mb-10 md:mb-16">
                 <h2 class="font-mono text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 md:mb-4">
-                    <span class="text-electric-blue">&lt;</span>FeaturedProjects<span class="text-electric-blue">/&gt;</span>
+                    <span class="text-electric-blue">&lt;</span>FeaturedProjects<span
+                        class="text-electric-blue">/&gt;</span>
                 </h2>
                 <p class="text-gray-400 text-sm md:text-base max-w-2xl mx-auto px-4">
                     Systems engineered for security, scale, and precision — not classroom exercises.
@@ -651,32 +791,47 @@
                     <div class="p-4 md:p-6">
                         <div class="flex items-center justify-between mb-3 md:mb-4">
                             <div class="flex items-center gap-2">
-                                <div class="w-9 h-9 md:w-10 md:h-10 bg-electric-blue/10 rounded-lg flex items-center justify-center">
+                                <div
+                                    class="w-9 h-9 md:w-10 md:h-10 bg-electric-blue/10 rounded-lg flex items-center justify-center">
                                     <i class="fas fa-lock text-electric-blue text-sm md:text-base"></i>
                                 </div>
-                                <span class="font-mono text-electric-blue text-xs bg-electric-blue/10 px-2 py-0.5 rounded">Time-Lock Engine</span>
+                                <span
+                                    class="font-mono text-electric-blue text-xs bg-electric-blue/10 px-2 py-0.5 rounded">Time-Lock
+                                    Engine</span>
                             </div>
-                            <a href="https://github.com/MuhammadZainIqbal/smart-attendence-managment-system" target="_blank" rel="noopener noreferrer"
-                               class="text-gray-500 hover:text-electric-blue transition-colors">
+                            <a href="https://github.com/MuhammadZainIqbal/smart-attendence-managment-system"
+                                target="_blank" rel="noopener noreferrer"
+                                class="text-gray-500 hover:text-electric-blue transition-colors">
                                 <i class="fas fa-external-link-alt"></i>
                             </a>
                         </div>
                         <h3 class="text-white font-semibold text-lg md:text-xl mb-2 md:mb-3">Present!</h3>
                         <p class="text-gray-400 text-xs md:text-sm leading-relaxed mb-4 md:mb-6">
-                            A hardened multi-tenant SaaS infrastructure piece built on ASP.NET Core. The core innovation is a
-                            <span class="text-white font-medium">Proprietary Time-Lock Engine</span> — cryptographically enforced,
-                            time-gated session windows that eliminate proxy abuse at the authentication layer. Implements
-                            strict tenant data isolation via row-level security policies, ensuring zero cross-tenant bleed
+                            A hardened multi-tenant SaaS infrastructure piece built on ASP.NET Core. The core innovation
+                            is a
+                            <span class="text-white font-medium">Proprietary Time-Lock Engine</span> — cryptographically
+                            enforced,
+                            time-gated session windows that eliminate proxy abuse at the authentication layer.
+                            Implements
+                            strict tenant data isolation via row-level security policies, ensuring zero cross-tenant
+                            bleed
                             across institutional boundaries.
                         </p>
                         <div class="flex flex-wrap gap-1.5 md:gap-2 mb-4 md:mb-6">
-                            <span class="bg-slate-bg text-electric-blue px-2 md:px-3 py-1 rounded-full text-xs font-mono">ASP.NET Core</span>
-                            <span class="bg-slate-bg text-electric-blue px-2 md:px-3 py-1 rounded-full text-xs font-mono">MSSQL</span>
-                            <span class="bg-slate-bg text-electric-blue px-2 md:px-3 py-1 rounded-full text-xs font-mono">Time-Lock Auth</span>
-                            <span class="bg-slate-bg text-electric-blue px-2 md:px-3 py-1 rounded-full text-xs font-mono">Multi-Tenant</span>
+                            <span
+                                class="bg-slate-bg text-electric-blue px-2 md:px-3 py-1 rounded-full text-xs font-mono">ASP.NET
+                                Core</span>
+                            <span
+                                class="bg-slate-bg text-electric-blue px-2 md:px-3 py-1 rounded-full text-xs font-mono">MSSQL</span>
+                            <span
+                                class="bg-slate-bg text-electric-blue px-2 md:px-3 py-1 rounded-full text-xs font-mono">Time-Lock
+                                Auth</span>
+                            <span
+                                class="bg-slate-bg text-electric-blue px-2 md:px-3 py-1 rounded-full text-xs font-mono">Multi-Tenant</span>
                         </div>
-                        <a href="https://github.com/MuhammadZainIqbal/smart-attendence-managment-system" target="_blank" rel="noopener noreferrer"
-                           class="inline-flex items-center gap-2 text-electric-blue hover:text-white transition-colors font-medium text-xs md:text-sm">
+                        <a href="https://github.com/MuhammadZainIqbal/smart-attendence-managment-system" target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center gap-2 text-electric-blue hover:text-white transition-colors font-medium text-xs md:text-sm">
                             <i class="fab fa-github"></i> View Code
                         </a>
                     </div>
@@ -687,67 +842,93 @@
                     <div class="p-4 md:p-6">
                         <div class="flex items-center justify-between mb-3 md:mb-4">
                             <div class="flex items-center gap-2">
-                                <div class="w-9 h-9 md:w-10 md:h-10 bg-purple-500/10 rounded-lg flex items-center justify-center">
+                                <div
+                                    class="w-9 h-9 md:w-10 md:h-10 bg-purple-500/10 rounded-lg flex items-center justify-center">
                                     <i class="fas fa-fingerprint text-purple-400 text-sm md:text-base"></i>
                                 </div>
-                                <span class="font-mono text-purple-400 text-xs bg-purple-500/10 px-2 py-0.5 rounded">Cryptographic Core</span>
+                                <span
+                                    class="font-mono text-purple-400 text-xs bg-purple-500/10 px-2 py-0.5 rounded">Cryptographic
+                                    Core</span>
                             </div>
-                            <a href="https://github.com/MuhammadZainIqbal/Online_Voting_System" target="_blank" rel="noopener noreferrer"
-                               class="text-gray-500 hover:text-electric-blue transition-colors">
+                            <a href="https://github.com/MuhammadZainIqbal/Online_Voting_System" target="_blank"
+                                rel="noopener noreferrer"
+                                class="text-gray-500 hover:text-electric-blue transition-colors">
                                 <i class="fas fa-external-link-alt"></i>
                             </a>
                         </div>
                         <h3 class="text-white font-semibold text-lg md:text-xl mb-2 md:mb-3">Online Voting System</h3>
                         <p class="text-gray-400 text-xs md:text-sm leading-relaxed mb-4 md:mb-6">
                             A full-stack voting platform engineered around
-                            <span class="text-white font-medium">Cryptographic Anonymity</span>. Implements Ring Signature schemes
+                            <span class="text-white font-medium">Cryptographic Anonymity</span>. Implements Ring
+                            Signature schemes
                             to guarantee mathematically provable voter anonymity while preserving full auditability on a
-                            tamper-evident ledger. OTP-gated authentication enforces one-identity-one-vote integrity without
+                            tamper-evident ledger. OTP-gated authentication enforces one-identity-one-vote integrity
+                            without
                             de-anonymizing the vote record.
                         </p>
                         <div class="flex flex-wrap gap-1.5 md:gap-2 mb-4 md:mb-6">
-                            <span class="bg-slate-bg text-purple-400 px-2 md:px-3 py-1 rounded-full text-xs font-mono">React</span>
-                            <span class="bg-slate-bg text-purple-400 px-2 md:px-3 py-1 rounded-full text-xs font-mono">PostgreSQL</span>
-                            <span class="bg-slate-bg text-purple-400 px-2 md:px-3 py-1 rounded-full text-xs font-mono">Ring Signatures</span>
-                            <span class="bg-slate-bg text-purple-400 px-2 md:px-3 py-1 rounded-full text-xs font-mono">Chain Audit Log</span>
+                            <span
+                                class="bg-slate-bg text-purple-400 px-2 md:px-3 py-1 rounded-full text-xs font-mono">React</span>
+                            <span
+                                class="bg-slate-bg text-purple-400 px-2 md:px-3 py-1 rounded-full text-xs font-mono">PostgreSQL</span>
+                            <span
+                                class="bg-slate-bg text-purple-400 px-2 md:px-3 py-1 rounded-full text-xs font-mono">Ring
+                                Signatures</span>
+                            <span
+                                class="bg-slate-bg text-purple-400 px-2 md:px-3 py-1 rounded-full text-xs font-mono">Chain
+                                Audit Log</span>
                         </div>
-                        <a href="https://github.com/MuhammadZainIqbal/Online_Voting_System" target="_blank" rel="noopener noreferrer"
-                           class="inline-flex items-center gap-2 text-electric-blue hover:text-white transition-colors font-medium text-xs md:text-sm">
+                        <a href="https://github.com/MuhammadZainIqbal/Online_Voting_System" target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center gap-2 text-electric-blue hover:text-white transition-colors font-medium text-xs md:text-sm">
                             <i class="fab fa-github"></i> View Code
                         </a>
                     </div>
                 </div>
 
-                <!-- Project 3: DB Concurrency Simulator -->
+                <!-- Project 3: mini-fuzz -->
                 <div class="project-card rounded-xl overflow-hidden md:col-span-2 lg:col-span-1">
                     <div class="p-4 md:p-6">
                         <div class="flex items-center justify-between mb-3 md:mb-4">
                             <div class="flex items-center gap-2">
-                                <div class="w-9 h-9 md:w-10 md:h-10 bg-green-500/10 rounded-lg flex items-center justify-center">
-                                    <i class="fas fa-database text-green-400 text-sm md:text-base"></i>
+                                <div
+                                    class="w-9 h-9 md:w-10 md:h-10 bg-orange-500/10 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-bug text-orange-400 text-sm md:text-base"></i>
                                 </div>
-                                <span class="font-mono text-green-400 text-xs bg-green-500/10 px-2 py-0.5 rounded">Concurrency Engine</span>
+                                <span
+                                    class="font-mono text-orange-400 text-xs bg-orange-500/10 px-2 py-0.5 rounded">HTTP
+                                    Fuzzer</span>
                             </div>
-                            <a href="https://github.com/MuhammadZainIqbal/MVCC_DeadLockDetection_2PL-Benchmark_Simulation" target="_blank" rel="noopener noreferrer"
-                               class="text-gray-500 hover:text-electric-blue transition-colors">
+                            <a href="https://github.com/MuhammadZainIqbal/intruder  " target="_blank"
+                                rel="noopener noreferrer"
+                                class="text-gray-500 hover:text-electric-blue transition-colors">
                                 <i class="fas fa-external-link-alt"></i>
                             </a>
                         </div>
-                        <h3 class="text-white font-semibold text-lg md:text-xl mb-2 md:mb-3">DB Concurrency Simulator</h3>
+                        <h3 class="text-white font-semibold text-lg md:text-xl mb-2 md:mb-3">Intruder</h3>
                         <p class="text-gray-400 text-xs md:text-sm leading-relaxed mb-4 md:mb-6">
-                            A high-fidelity simulation of database concurrency control algorithms:
-                            <span class="text-white font-medium">MVCC, Two-Phase Locking, and Deadlock Detection</span>.
-                            Stress-tested under multi-threaded load to surface real transaction throughput bottlenecks —
-                            the depth of analysis that catches systemic failure modes before they hit production.
+                            A raw-HTTP fuzzer built for responsible bug-bounty recon — Burp Intruder without the bloat.
+                            Delivers <span class="text-white font-medium">async TUI + Tkinter GUI</span> modes with a
+                            token-bucket RPS limiter, auto-pause on 429 / 5xx storms, scope enforcement, macro
+                            pre-request flows for CSRF extraction, and SQLite / CSV output with credential masking.
+                            Safety guardrails baked in, not bolted on.
                         </p>
                         <div class="flex flex-wrap gap-1.5 md:gap-2 mb-4 md:mb-6">
-                            <span class="bg-slate-bg text-green-400 px-2 md:px-3 py-1 rounded-full text-xs font-mono">Python</span>
-                            <span class="bg-slate-bg text-green-400 px-2 md:px-3 py-1 rounded-full text-xs font-mono">Multi-threading</span>
-                            <span class="bg-slate-bg text-green-400 px-2 md:px-3 py-1 rounded-full text-xs font-mono">MVCC</span>
-                            <span class="bg-slate-bg text-green-400 px-2 md:px-3 py-1 rounded-full text-xs font-mono">2PL</span>
+                            <span
+                                class="bg-slate-bg text-orange-400 px-2 md:px-3 py-1 rounded-full text-xs font-mono">Python</span>
+                            <span
+                                class="bg-slate-bg text-orange-400 px-2 md:px-3 py-1 rounded-full text-xs font-mono">asyncio
+                                / httpx</span>
+                            <span
+                                class="bg-slate-bg text-orange-400 px-2 md:px-3 py-1 rounded-full text-xs font-mono">Rich
+                                TUI</span>
+                            <span
+                                class="bg-slate-bg text-orange-400 px-2 md:px-3 py-1 rounded-full text-xs font-mono">Bug
+                                Bounty</span>
                         </div>
-                        <a href="https://github.com/MuhammadZainIqbal/MVCC_DeadLockDetection_2PL-Benchmark_Simulation" target="_blank" rel="noopener noreferrer"
-                           class="inline-flex items-center gap-2 text-electric-blue hover:text-white transition-colors font-medium text-xs md:text-sm">
+                        <a href="https://github.com/MuhammadZainIqbal/intruder" target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center gap-2 text-electric-blue hover:text-white transition-colors font-medium text-xs md:text-sm">
                             <i class="fab fa-github"></i> View Code
                         </a>
                     </div>
@@ -774,19 +955,24 @@
             <div class="max-w-xl mx-auto">
                 <div class="glass-card rounded-xl p-4 md:p-8">
                     <!-- Email -->
-                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 bg-slate-bg rounded-lg p-3 md:p-4 mb-4 md:mb-6">
+                    <div
+                        class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 bg-slate-bg rounded-lg p-3 md:p-4 mb-4 md:mb-6">
                         <div class="flex items-center gap-3 md:gap-4">
-                            <div class="w-9 h-9 md:w-10 md:h-10 bg-electric-blue/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <div
+                                class="w-9 h-9 md:w-10 md:h-10 bg-electric-blue/10 rounded-lg flex items-center justify-center flex-shrink-0">
                                 <i class="fas fa-envelope text-electric-blue text-sm md:text-base"></i>
                             </div>
                             <div>
                                 <p class="text-gray-500 text-xs uppercase tracking-wide">Email</p>
-                                <p class="text-white font-mono text-xs md:text-sm break-all" id="emailText">zainiqbal7007@gmail.com</p>
+                                <p class="text-white font-mono text-xs md:text-sm break-all" id="emailText">
+                                    zainiqbal7007@gmail.com</p>
                             </div>
                         </div>
-                        <button id="copyEmailBtn" class="relative bg-slate-card hover:bg-slate-border text-gray-400 hover:text-white px-3 md:px-4 py-2 rounded-lg transition-colors text-sm self-end sm:self-auto">
+                        <button id="copyEmailBtn"
+                            class="relative bg-slate-card hover:bg-slate-border text-gray-400 hover:text-white px-3 md:px-4 py-2 rounded-lg transition-colors text-sm self-end sm:self-auto">
                             <i class="fas fa-copy"></i>
-                            <span class="copy-tooltip absolute -top-10 left-1/2 transform -translate-x-1/2 bg-green-500 text-white text-xs px-3 py-1 rounded whitespace-nowrap">
+                            <span
+                                class="copy-tooltip absolute -top-10 left-1/2 transform -translate-x-1/2 bg-green-500 text-white text-xs px-3 py-1 rounded whitespace-nowrap">
                                 Copied!
                             </span>
                         </button>
@@ -795,15 +981,15 @@
                     <!-- Social Links -->
                     <div class="flex justify-center gap-3 md:gap-4">
                         <a href="https://github.com/muhammadzainiqbal" target="_blank" rel="noopener noreferrer"
-                           class="w-11 h-11 md:w-12 md:h-12 bg-slate-bg hover:bg-electric-blue/10 border border-slate-border hover:border-electric-blue rounded-lg flex items-center justify-center text-gray-400 hover:text-electric-blue transition-all">
+                            class="w-11 h-11 md:w-12 md:h-12 bg-slate-bg hover:bg-electric-blue/10 border border-slate-border hover:border-electric-blue rounded-lg flex items-center justify-center text-gray-400 hover:text-electric-blue transition-all">
                             <i class="fab fa-github text-lg md:text-xl"></i>
                         </a>
                         <a href="https://linkedin.com/in/muhammadzainiqbal" target="_blank" rel="noopener noreferrer"
-                           class="w-11 h-11 md:w-12 md:h-12 bg-slate-bg hover:bg-electric-blue/10 border border-slate-border hover:border-electric-blue rounded-lg flex items-center justify-center text-gray-400 hover:text-electric-blue transition-all">
+                            class="w-11 h-11 md:w-12 md:h-12 bg-slate-bg hover:bg-electric-blue/10 border border-slate-border hover:border-electric-blue rounded-lg flex items-center justify-center text-gray-400 hover:text-electric-blue transition-all">
                             <i class="fab fa-linkedin-in text-lg md:text-xl"></i>
                         </a>
                         <a href="mailto:zainiqbal7007@gmail.com"
-                           class="w-11 h-11 md:w-12 md:h-12 bg-slate-bg hover:bg-electric-blue/10 border border-slate-border hover:border-electric-blue rounded-lg flex items-center justify-center text-gray-400 hover:text-electric-blue transition-all">
+                            class="w-11 h-11 md:w-12 md:h-12 bg-slate-bg hover:bg-electric-blue/10 border border-slate-border hover:border-electric-blue rounded-lg flex items-center justify-center text-gray-400 hover:text-electric-blue transition-all">
                             <i class="fas fa-envelope text-lg md:text-xl"></i>
                         </a>
                     </div>
@@ -835,9 +1021,9 @@
     <script>
         // ── Mobile Menu Toggle ─────────────────────────────
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenu    = document.getElementById('mobileMenu');
-        const menuIcon      = document.getElementById('menuIcon');
-        const mobileLinks   = document.querySelectorAll('.mobile-link');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuIcon = document.getElementById('menuIcon');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
 
         mobileMenuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('active');
@@ -864,11 +1050,11 @@
         // ── Terminal Animation — Agentic Workflow ──────────
         const terminalLines = [
             { prompt: '~$', command: 'agent-init --task "Secure Multi-Tenant SaaS" --mode autonomous', delay: 0 },
-            { prompt: '~$', command: 'analyzing system-threat-models... [CVE-2024-scan active]',        delay: 950 },
-            { prompt: '~$', command: 'neural-refactor: optimizing 190ms response logic → 12ms',         delay: 1900 },
-            { prompt: '~$', command: 'hardening infrastructure via automated-red-teaming...',            delay: 2850 },
-            { prompt: '~$', command: 'deploying → AWS ECS via GitHub Actions [zero-downtime rollout]',  delay: 3800 },
-            { prompt: '✓',  command: 'Status: Autonomous Deployment Verified. All systems nominal.',    delay: 4750, success: true }
+            { prompt: '~$', command: 'analyzing system-threat-models... [CVE-2024-scan active]', delay: 950 },
+            { prompt: '~$', command: 'neural-refactor: optimizing 190ms response logic → 12ms', delay: 1900 },
+            { prompt: '~$', command: 'hardening infrastructure via automated-red-teaming...', delay: 2850 },
+            { prompt: '~$', command: 'deploying → AWS ECS via GitHub Actions [zero-downtime rollout]', delay: 3800 },
+            { prompt: '✓', command: 'Status: Autonomous Deployment Verified. All systems nominal.', delay: 4750, success: true }
         ];
 
         const terminalBody = document.getElementById('terminalBody');
@@ -915,8 +1101,8 @@
 
         // ── Copy Email ─────────────────────────────────────
         const copyEmailBtn = document.getElementById('copyEmailBtn');
-        const emailText    = document.getElementById('emailText');
-        const tooltip      = copyEmailBtn.querySelector('.copy-tooltip');
+        const emailText = document.getElementById('emailText');
+        const tooltip = copyEmailBtn.querySelector('.copy-tooltip');
 
         copyEmailBtn.addEventListener('click', async () => {
             try {
@@ -972,4 +1158,5 @@
         });
     </script>
 </body>
+
 </html>
